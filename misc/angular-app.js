@@ -22,11 +22,12 @@ angular.module('app', [
 .controller('AppCtrl', ['$scope','StackoverflowActivityService', function($scope,StackoverflowActivityService) {
 
   StackoverflowActivityService.events({
-    user:'gigablox',
-    access_token:'ef39c49946b602db1e249feda19bd3514ec8f08c'
+    user:'1113921',
+    key:'SvC5iN3YJE*W9pAMOE2n1Q(('
   });
 
   $scope.$on('stackoverflowActivityEvents', function(e,d){
+    console.log(d);
     $scope.events = d;
   });
   
