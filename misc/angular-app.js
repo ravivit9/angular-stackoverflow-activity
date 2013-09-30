@@ -23,14 +23,16 @@ angular.module('app', [
 
   StackoverflowActivityService.events({
     user:'1113921',
-    key:'SvC5iN3YJE*W9pAMOE2n1Q(('
+    params:{
+      key:'SvC5iN3YJE*W9pAMOE2n1Q((',
+      site:'stackoverflow',
+      filter:'unsafe',
+      callback: 'JSON_CALLBACK'
+    }
+  }).search().$promise.then(function(events){
+    $scope.events = events.items;
   });
 
-  $scope.$on('stackoverflowActivityEvents', function(e,d){
-    console.log(d);
-    $scope.events = d;
-  });
-  
   $scope.options = {
     limit:5
   };

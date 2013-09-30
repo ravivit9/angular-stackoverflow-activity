@@ -1,22 +1,13 @@
-angular.module('stackoverflow.activity', ['stackoverflow.activity.tpls'])
-
+angular.module('stackoverflow.activity', ['ngResource','stackoverflow.activity.tpls'])
 .factory('StackoverflowActivityService', function($q,$rootScope,$resource) {
-
     var _stackoverflowActivity = {};
-
-    var events = function(opts){
-        return $resource('http://api.stackexchange.com/2.1/users/:user/timeline', {user: opts.user}, {search: {method:'JSONP',params:{key:opts.key,site:'stackoverflow',callback: 'JSON_CALLBACK'}}});
-    }
-        
     _stackoverflowActivity.events = function(opts){
-        events(opts).search().$promise.then(
-        function(events){
-            $rootScope.$broadcast('stackoverflowActivityEvents', events.items);
+        return $resource('http://api.stackexchange.com/2.1/users/:user/timeline', {user: opts.user}, {
+            search: {method:'JSONP',params:opts.params}
         });
     }
-
     return _stackoverflowActivity;
-  })
+})
 
 .directive('stackoverflowActivity', function() {
     return {
@@ -30,49 +21,72 @@ angular.module('stackoverflow.activity', ['stackoverflow.activity.tpls'])
         link: function(scope, controller) {
         }
     };
+})
+
+.directive('stackoverflowActivityComment', function() {
+    return {
+        restrict: 'E',
+        replace: true,
+        templateUrl: 'views/stackoverflow.activity.comment.tpl.html',
+        link: function(scope, controller) {
+        }
+    };
 });
 
 /*
     -post_type: question, answer
     -timeline_type: commented, asked, answered, badge, revision, accepted, reviewed, suggested
-    -0/13 Completed
     
-    ******** Use single directive and pass middle fragments? ********
-    
-    -comment icon
-    "<timeline_type> made on a <post_type>"
+    ============================ COMMENT
+    <timeline_type> on <post_type>
+    @URL<comment_id>
+    "<detail>"
     QuestionComment             Not Done
     AnswerComment               Not Done
     
-    -question asked icon
-    "<timeline_type> a <post_type>"
+    ====================== QUESTION ASKED
+    <timeline_type> a <post_type>
+    @URL<post_id>
+    "<detail>"
     QuestionAsked               Not Done
     
-    -question answered icon
-    "<timeline_type> a <post_type>"
+    =================== QUESTION ANSWERED
+    <timeline_type> a question
+    @URL<post_id>
+    "<detail>"
     QuestionAnswered            Not Done
     
-    -badge icon
-    "<timeline_type> awarded to <post_type>"
+    ============================== BADGE
+    <timeline_type> for <post_type>
+    @URL<post_id>
+    "<detail>"
     QuestionBadge               Not Done
     AnswerBadge                 Not Done
     
-    -revision icon
-    "<timeline_type> a <post_type>"
+    =========================== REVISION
+    <timeline_type> for <post_type>
+    @URL<title>
+    "<detail>"    
     QuestionRevision            Not Done
     AnswerRevision              Not Done
     
-    -answer accepted icon
-    "<timeline_type> a <post_type>"
+    ==================== ANSWER ACCEPTED
+    <timeline_type> <post_type>
+    @URL<post_id>
+    "<title>"    
     AnswerAccepted              Not Done
     
-    -reviewed icon
-    "<timeline_type> a <post_type>"
+    =========================== REVIEWED
+    <timeline_type> <post_type>
+    @URL<post_id>
+    "<title>"    
     QuestionReviewed            Not Done
     AnswerReviewed              Not Done
     
-    -suggested icon
-    "<timeline_type> a <post_type>"
+    ========================== SUGGESTED
+    <timeline_type> edit on <post_type>
+    @URL<post_id>
+    "<detail>"    
     QuestionSuggested           Not Done
     AnswerSuggested             Not Done
 */
