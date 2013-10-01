@@ -1,0 +1,19 @@
+<div class="stackoverflow-activity-row-event" ng-show="event.timeline_type=='badge'">
+    <div class="stackoverflow-activity-row-date">{{event.creation_date | date:'medium'}}</div><br>
+    <div class="stackoverflow-activity-row-icon-container">
+        <span class="icon-star stackoverflow-activity-row-icon"></span>
+    </div>
+    <div class="stackoverflow-activity-description-container">
+        <span class="stackoverflow-activity-description-label">{{event.timeline_type}} for {{event.post_type}}</span>
+        <br>
+            
+        <a href="{{event.link}}" target="_blank">@{{event.title}}</a>
+    </div>
+    <div class="stackoverflow-activity-message-container">
+        <span class="stackoverflow-activity-message-lquote">&#8220;</span>
+        <span class="stackoverflow-activity-message">
+            {{event.detail}}
+        </span>
+        <span class="stackoverflow-activity-message-rquote">&#8221;</span>
+    </div>
+</div>

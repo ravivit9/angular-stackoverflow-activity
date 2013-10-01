@@ -1,0 +1,19 @@
+<div class="stackoverflow-activity-row-event" ng-show="event.timeline_type=='answered'">
+    <div class="stackoverflow-activity-row-date">{{event.creation_date | date:'medium'}}</div><br>
+    <div class="stackoverflow-activity-row-icon-container">
+        <span class="icon-warning stackoverflow-activity-row-icon"></span>
+    </div>
+    <div class="stackoverflow-activity-description-container">
+        <span class="stackoverflow-activity-description-label">{{event.timeline_type}} a question</span>
+        <br>
+            
+        <a href="{{event.link}}" target="_blank">@{{event.title}}</a>
+    </div>
+    <div class="stackoverflow-activity-message-container">
+        <span class="stackoverflow-activity-message-lquote">&#8220;</span>
+        <span class="stackoverflow-activity-message">
+            {{event.timeline_type}} a question about {{event.title}}
+        </span>
+        <span class="stackoverflow-activity-message-rquote">&#8221;</span>
+    </div>
+</div>
