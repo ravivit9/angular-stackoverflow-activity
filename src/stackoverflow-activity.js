@@ -31,6 +31,76 @@ angular.module('stackoverflow.activity', ['ngResource','stackoverflow.activity.t
         link: function(scope, controller) {
         }
     };
+})
+
+.directive('stackoverflowActivityQuestionAsked', function() {
+    return {
+        restrict: 'E',
+        replace: true,
+        templateUrl: 'views/stackoverflow.activity.questionAsked.tpl.html',
+        link: function(scope, controller) {
+        }
+    };
+})
+
+.directive('stackoverflowActivityQuestionAnswered', function() {
+    return {
+        restrict: 'E',
+        replace: true,
+        templateUrl: 'views/stackoverflow.activity.questionAnswered.tpl.html',
+        link: function(scope, controller) {
+        }
+    };
+})
+
+.directive('stackoverflowActivityBadge', function() {
+    return {
+        restrict: 'E',
+        replace: true,
+        templateUrl: 'views/stackoverflow.activity.badge.tpl.html',
+        link: function(scope, controller) {
+        }
+    };
+})
+
+.directive('stackoverflowActivityRevision', function() {
+    return {
+        restrict: 'E',
+        replace: true,
+        templateUrl: 'views/stackoverflow.activity.revision.tpl.html',
+        link: function(scope, controller) {
+        }
+    };
+})
+
+.directive('stackoverflowActivityAnswerAccepted', function() {
+    return {
+        restrict: 'E',
+        replace: true,
+        templateUrl: 'views/stackoverflow.activity.answerAccepted.tpl.html',
+        link: function(scope, controller) {
+        }
+    };
+})
+
+.directive('stackoverflowActivityReviewed', function() {
+    return {
+        restrict: 'E',
+        replace: true,
+        templateUrl: 'views/stackoverflow.activity.reviewed.tpl.html',
+        link: function(scope, controller) {
+        }
+    };
+})
+
+.directive('stackoverflowActivitySuggested', function() {
+    return {
+        restrict: 'E',
+        replace: true,
+        templateUrl: 'views/stackoverflow.activity.suggested.tpl.html',
+        link: function(scope, controller) {
+        }
+    };
 });
 
 /*
@@ -41,52 +111,52 @@ angular.module('stackoverflow.activity', ['ngResource','stackoverflow.activity.t
     <timeline_type> on <post_type>
     @URL<comment_id>
     "<detail>"
-    QuestionComment             Not Done
-    AnswerComment               Not Done
+    QuestionComment             Complete
+    AnswerComment               Complete
     
     ====================== QUESTION ASKED
     <timeline_type> a <post_type>
     @URL<post_id>
     "<detail>"
-    QuestionAsked               Not Done
+    QuestionAsked               Complete
     
     =================== QUESTION ANSWERED
     <timeline_type> a question
     @URL<post_id>
     "<detail>"
-    QuestionAnswered            Not Done
+    QuestionAnswered            Complete
     
     ============================== BADGE
     <timeline_type> for <post_type>
     @URL<post_id>
     "<detail>"
-    QuestionBadge               Not Done
-    AnswerBadge                 Not Done
+    QuestionBadge               Complete
+    AnswerBadge                 Complete
     
     =========================== REVISION
     <timeline_type> for <post_type>
     @URL<title>
     "<detail>"    
-    QuestionRevision            Not Done
-    AnswerRevision              Not Done
+    QuestionRevision            Complete
+    AnswerRevision              Complete
     
     ==================== ANSWER ACCEPTED
     <timeline_type> <post_type>
     @URL<post_id>
     "<title>"    
-    AnswerAccepted              Not Done
+    AnswerAccepted              Complete
     
     =========================== REVIEWED
     <timeline_type> <post_type>
     @URL<post_id>
     "<title>"    
-    QuestionReviewed            Not Done
-    AnswerReviewed              Not Done
+    QuestionReviewed            Complete
+    AnswerReviewed              Complete
     
     ========================== SUGGESTED
     <timeline_type> edit on <post_type>
     @URL<post_id>
     "<detail>"    
-    QuestionSuggested           Not Done
-    AnswerSuggested             Not Done
+    QuestionSuggested           Complete
+    AnswerSuggested             Complete
 */
