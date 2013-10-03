@@ -6,7 +6,6 @@
     "angular-resource": "v1.2.0-rc.2",
     "angular-mocks": "1.2.0-rc.2",
     "angular-route": "v1.2.0-rc.2",
-    "angular-bootstrap": "0.6.0",
     "bootstrap": "3.0.0"
   }
 }

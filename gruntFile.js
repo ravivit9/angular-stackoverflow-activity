@@ -10,22 +10,24 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-karma');
 
   grunt.registerTask('build', [
-                              'clean:build',
-                              'copy:misc',
-                              'copy:src',
-                              'copy:vendor',
-                              'less',
-                              'clean:less',
-                              'html2js',
-                              'htmlbuild:build'
-                              ]);
+    'clean:build',
+    'copy:misc',
+    'copy:src',
+    'copy:vendor',
+    'less',
+    'clean:less',
+    'html2js',
+    'htmlbuild:build'
+  ]);
   
   grunt.registerTask('release', [
-                              'copy:release',
-                              'concat:misc',
-                              'concat:src',
-                              'htmlbuild:release'
-                              ]);
+    'build',
+    'karma',
+    'copy:release',
+    'concat:misc',
+    'concat:src',
+    'htmlbuild:release'
+  ]);
   
   // Project configuration.
   grunt.initConfig({
@@ -62,7 +64,6 @@ module.exports = function (grunt) {
       vendor:{
         files: [
           {expand: true, flatten: true, src: ['vendor/angular/angular.js'], dest: 'build/js'},
-          {expand: true, flatten: true, src: ['vendor/angular-bootstrap/ui-bootstrap-tpls.js'], dest: 'build/js'},
           {expand: true, flatten: true, src: ['vendor/angular-resource/angular-resource.js'], dest: 'build/js/'},
           {expand: true, flatten: true, src: ['vendor/angular-route/angular-route.js'], dest: 'build/js/'},
           {expand: true, flatten: true, src: ['vendor/bootstrap/less/*'], dest: 'build/css', filter: 'isFile'},
@@ -100,9 +101,6 @@ module.exports = function (grunt) {
             'build/js/angular.js',
             'build/js/angular-resource.js',
             'build/js/angular-route.js',
-            'build/js/ui-bootstrap-tpls.js',
-            'build/js/stackoverflow-activity.js',
-            'build/js/stackoverflow-activity-tpls.js',
             'build/js/angular-app-tpls.js',
             'build/js/angular-app.js',
              ],
@@ -133,7 +131,6 @@ module.exports = function (grunt) {
             'build/js/angular.js',
             'build/js/angular-resource.js',
             'build/js/angular-route.js',
-            'build/js/ui-bootstrap-tpls.js',
             'build/js/stackoverflow-activity.js',
             'build/js/stackoverflow-activity-tpls.js',
             'build/js/angular-app-tpls.js',
@@ -176,15 +173,8 @@ module.exports = function (grunt) {
       build: {
         files: ['misc/**/*','src/**/*'],
         tasks: [
-                'clean:build',
-                'copy:misc',
-                'copy:src',
-                'copy:vendor',
-                'less',
-                'clean:less',
-                'html2js',
-                'htmlbuild:build'
-                ]
+          'build'
+        ]
       },
     },
     karma: {

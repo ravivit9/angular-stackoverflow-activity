@@ -1,4 +1,4 @@
-angular.module('stackoverflow.activity', ['ngResource','stackoverflow.activity.tpls'])
+angular.module('stackoverflow.activity', ['stackoverflow.activity.tpls'])
 .factory('StackoverflowActivityService', function($q,$rootScope,$resource) {
     var _stackoverflowActivity = {};
     _stackoverflowActivity.events = function(opts){
