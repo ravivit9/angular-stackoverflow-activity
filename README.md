@@ -52,11 +52,11 @@ StackoverflowActivityService.events({
   user:'gigablox',
   params:{
     
-    //Github API support CORS as well 
+    //StackOverflow API support CORS as well 
     //https://api.stackexchange.com/docs
     callback:'JSON_CALLBACK', 
     
-    //Github API rate limits to 10,000 requests per day
+    //StackOverflow API rate limits to 10,000 requests per day
     //https://api.stackexchange.com/docs/throttle
 
     //If you need more you can generate a (key) for your app and is safe for client side code.
