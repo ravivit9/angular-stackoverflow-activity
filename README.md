@@ -56,10 +56,10 @@ StackoverflowActivityService.events({
     //https://api.stackexchange.com/docs
     callback:'JSON_CALLBACK', 
     
-    //StackOverflow API rate limits to 10,000 requests per day
+    //StackOverflow API rate limits to 300 requests per day for anonymous requests.
     //https://api.stackexchange.com/docs/throttle
 
-    //If you need more you can generate a (key) for your app and is safe for client side code.
+    //If you need more (10000 requests per day) you can generate a (key) for your app and is safe for client side code.
     //http://stackapps.com/apps/oauth/register
     key:'mykey123'
     
