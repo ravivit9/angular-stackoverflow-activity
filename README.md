@@ -6,15 +6,15 @@ An [AngularJS](http://angularjs.org/) directive module for displaying a users pu
 
 ## Usage
 
-1. `bower install --save angular-github-activity`
+1. `bower install --save angular-stackoverflow-activity`
 2. Include [dependencies](#dependencies) in your HTML.
-3. Use the `github-activity` directive.
+3. Use the `stackoverflow-activity` directive.
 
 ## Dependencies
 
 These templates were built with *responsive design* in mind and require a dependency of [Bootstrap 3 CSS](http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css)
 
-The `github.activity` module requires a dependency of `ngResource` for service calls made to the StackOverflow API.
+The `stackoverflow.activity` module requires a dependency of `ngResource` for service calls made to the StackOverflow API.
 
 ```html
 <head>
