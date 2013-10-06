@@ -52,22 +52,17 @@ StackoverflowActivityService.events({
   user:'gigablox',
   params:{
     
-    //StackOverflow API support CORS as well 
-    //https://api.stackexchange.com/docs
+    //StackOverflow API support CORS as well. (https://api.stackexchange.com/docs)
     callback:'JSON_CALLBACK', 
     
-    //StackOverflow API rate limits to 300 requests per day for anonymous requests.
-    //https://api.stackexchange.com/docs/throttle
-
-    //If you need more (10000 requests per day) you can generate a (key) for your app and is safe for client side code.
-    //http://stackapps.com/apps/oauth/register
+    //StackOverflow API rate limits to 300 requests per day for anonymous requests. (https://api.stackexchange.com/docs/throttle)
+    //If you need more (10000 requests per day) you can generate a (key) for your app and is safe for client side code. (http://stackapps.com/apps/oauth/register)
     key:'mykey123'
     
-    //Indeed.
+    //Required.
     site:'stackoverflow',
     
-    //Will return additional event properties like URL's.
-    //Required out of the box, but you can always customize templates to your liking to remove this dependency.
+    //Will return additional event properties like URL's. Required out of the box, but you can always customize templates to your liking to remove this dependency.
     filter:'unsafe',
   }
 }).get().$promise.then(function(events){
