@@ -17,8 +17,8 @@ module.exports = function(config) {
       'vendor/angular/angular.js',
       'vendor/angular-resource/angular-resource.js',
       'vendor/angular-mocks/angular-mocks.js',
-      'release/js/stackoverflow-activity.js',
-      'src/test/stackoverflow-activity.test.js'
+      'build/js/*tpls.js',
+      'src/**/*.js'
     ],
 
 

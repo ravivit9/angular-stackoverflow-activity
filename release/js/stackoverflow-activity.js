@@ -3,7 +3,7 @@ angular.module('stackoverflow.activity', ['stackoverflow.activity.tpls'])
     var _stackoverflowActivity = {};
     _stackoverflowActivity.events = function(opts){
         return $resource('http://api.stackexchange.com/2.1/users/:user/timeline', {user: opts.user}, {
-            search: {method:'JSONP',params:opts.params}
+            get: {method:'JSONP',params:opts.params}
         });
     }
     return _stackoverflowActivity;
@@ -11,7 +11,7 @@ angular.module('stackoverflow.activity', ['stackoverflow.activity.tpls'])
 
 .directive('stackoverflowActivity', function() {
     return {
-        restrict: 'E',
+        restrict: 'EA',
         replace: true,
         scope:{
           events: '=',

@@ -83,7 +83,7 @@ module.exports = function (grunt) {
           base: 'misc/'
         },
         src: ['misc/**/*.tpl.html'],
-        dest: 'build/js/angular-app-tpls.js',
+        dest: 'build/js/app-tpls.js',
         module: 'app.tpls'
       },
       src: {
@@ -101,8 +101,8 @@ module.exports = function (grunt) {
             'build/js/angular.js',
             'build/js/angular-resource.js',
             'build/js/angular-route.js',
-            'build/js/angular-app-tpls.js',
-            'build/js/angular-app.js',
+            'build/js/app-tpls.js',
+            'build/js/app.js',
              ],
         dest:'release/js/app.js'
       },
@@ -133,8 +133,8 @@ module.exports = function (grunt) {
             'build/js/angular-route.js',
             'build/js/stackoverflow-activity.js',
             'build/js/stackoverflow-activity-tpls.js',
-            'build/js/angular-app-tpls.js',
-            'build/js/angular-app.js',
+            'build/js/app-tpls.js',
+            'build/js/app.js',
             ]
           },
         }
@@ -148,6 +148,7 @@ module.exports = function (grunt) {
           styles: {
             bundle: [
               'release/css/app.css',
+              'release/css/stackoverflow-activity.css',
             ]
           },
           scripts: {
@@ -160,12 +161,20 @@ module.exports = function (grunt) {
       }
     },
     less: {
-      build:{
+      misc:{
         options: {
           yuicompress: true,
         },
         files: {
           'build/css/app.css': 'build/css/app.less'
+        }
+      },
+      src:{
+        options: {
+          yuicompress: true,
+        },
+        files: {
+          'build/css/stackoverflow-activity.css': 'build/css/stackoverflow-activity.less'
         }
       },
     },

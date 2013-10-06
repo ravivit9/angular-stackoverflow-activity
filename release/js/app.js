@@ -19451,7 +19451,7 @@ angular.module("views/angular-stackoverflow-activity.tpl.html", []).run(["$templ
     "        </div>\n" +
     "        \n" +
     "        <div class=\"col-sm-6\">\n" +
-    "            <stackoverflow-activity events=\"events\" options=\"options\"></stackoverflow-activity>\n" +
+    "            <div stackoverflow-activity events=\"events\" options=\"options\"></div>\n" +
     "        </div>\n" +
     "    </div>\n" +
     "</div>");
@@ -19488,7 +19488,7 @@ angular.module('app', [
       filter:'unsafe',
       callback: 'JSON_CALLBACK'
     }
-  }).search().$promise.then(function(events){
+  }).get().$promise.then(function(events){
     $scope.events = events.items;
   });
 

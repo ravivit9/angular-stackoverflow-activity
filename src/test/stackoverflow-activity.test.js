@@ -23,7 +23,7 @@ describe('stackoverflow.activity tests', function () {
             params:{
                 callback:'JSON_CALLBACK'
             }
-        }).search(function(user) {
+        }).get(function(user) {
             expect(user.testing).toEqual('anything');
         });
         httpBackend.flush();

@@ -29,7 +29,7 @@ angular.module('app', [
       filter:'unsafe',
       callback: 'JSON_CALLBACK'
     }
-  }).search().$promise.then(function(events){
+  }).get().$promise.then(function(events){
     $scope.events = events.items;
   });
 
