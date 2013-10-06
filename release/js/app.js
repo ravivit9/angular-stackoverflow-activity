@@ -19446,11 +19446,7 @@ angular.module("views/angular-stackoverflow-activity.tpl.html", []).run(["$templ
   $templateCache.put("views/angular-stackoverflow-activity.tpl.html",
     "<div class=\"container\">\n" +
     "    <div class=\"row\">\n" +
-    "        <div class=\"col-sm-6\">\n" +
-    "\n" +
-    "        </div>\n" +
-    "        \n" +
-    "        <div class=\"col-sm-6\">\n" +
+    "        <div class=\"col-lg-12\">\n" +
     "            <div stackoverflow-activity events=\"events\" options=\"options\"></div>\n" +
     "        </div>\n" +
     "    </div>\n" +

@@ -12,15 +12,12 @@ An [AngularJS](http://angularjs.org/) directive module for displaying a users pu
 
 ## Dependencies
 
-These templates were built with *responsive design* in mind and require a dependency of [Bootstrap 3 CSS](http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css)
-
 The `stackoverflow.activity` module requires a dependency of `ngResource` for service calls made to the StackOverflow API.
 
 ```html
 <head>
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
 <link href="stackoverflow-activity.css" /> <!-- Find this in /release -->
-<link href="app.css" /> <!-- Your application css and bootstrap overrides -->
+<link href="app.css" /> <!-- Your application css and overrides -->
 </head>
 
 <body>

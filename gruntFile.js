@@ -124,6 +124,7 @@ module.exports = function (grunt) {
           styles: {
             bundle: [
               'build/css/app.css',
+              'build/css/stackoverflow-activity.css',
             ]
           },
           scripts: {

@@ -1,20 +1,16 @@
-<div class="col-lg-6">
-    <div class="row">
-        <div class="col-md-12" style="text-align:center;">
-            <span class="icon-stackoverflow stackoverflow-activity-icon"></span>
-            <span class="stackoverflow-activity-heading">STACKOVERFLOW ACTIVITY</span>
-        </div>
+<div class="stackoverflow-activity">
+    <div class="stackoverflow-activity-header">
+        <span class="icon-stackoverflow stackoverflow-activity-icon"></span>
+        <span class="stackoverflow-activity-header-label">STACKOVERFLOW ACTIVITY</span>
     </div>
-    <div class="row stackoverflow-activity-row" ng-repeat="event in events | limitTo:options.limit">
-        <div class="col-lg-12">  
-            <stackoverflow-activity-comment></stackoverflow-activity-comment>
-            <stackoverflow-activity-question-asked></stackoverflow-activity-question-asked>
-            <stackoverflow-activity-question-answered></stackoverflow-activity-question-answered>
-            <stackoverflow-activity-badge></stackoverflow-activity-badge>
-            <stackoverflow-activity-revision></stackoverflow-activity-revision>
-            <stackoverflow-activity-answer-accepted></stackoverflow-activity-answer-accepted>
-            <stackoverflow-activity-reviewed></stackoverflow-activity-reviewed>
-            <stackoverflow-activity-suggested></stackoverflow-activity-suggested>
-        </div>
+    <div class="stackoverflow-activity-row" ng-repeat="event in events | limitTo:options.limit">
+        <stackoverflow-activity-comment></stackoverflow-activity-comment>
+        <stackoverflow-activity-question-asked></stackoverflow-activity-question-asked>
+        <stackoverflow-activity-question-answered></stackoverflow-activity-question-answered>
+        <stackoverflow-activity-badge></stackoverflow-activity-badge>
+        <stackoverflow-activity-revision></stackoverflow-activity-revision>
+        <stackoverflow-activity-answer-accepted></stackoverflow-activity-answer-accepted>
+        <stackoverflow-activity-reviewed></stackoverflow-activity-reviewed>
+        <stackoverflow-activity-suggested></stackoverflow-activity-suggested>
     </div>
 </div>

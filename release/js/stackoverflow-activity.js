@@ -349,24 +349,20 @@ angular.module("views/stackoverflow.activity.suggested.tpl.html", []).run(["$tem
 
 angular.module("views/stackoverflow.activity.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("views/stackoverflow.activity.tpl.html",
-    "<div class=\"col-lg-6\">\n" +
-    "    <div class=\"row\">\n" +
-    "        <div class=\"col-md-12\" style=\"text-align:center;\">\n" +
-    "            <span class=\"icon-stackoverflow stackoverflow-activity-icon\"></span>\n" +
-    "            <span class=\"stackoverflow-activity-heading\">STACKOVERFLOW ACTIVITY</span>\n" +
-    "        </div>\n" +
+    "<div class=\"stackoverflow-activity\">\n" +
+    "    <div class=\"stackoverflow-activity-header\">\n" +
+    "        <span class=\"icon-stackoverflow stackoverflow-activity-icon\"></span>\n" +
+    "        <span class=\"stackoverflow-activity-header-label\">STACKOVERFLOW ACTIVITY</span>\n" +
     "    </div>\n" +
-    "    <div class=\"row stackoverflow-activity-row\" ng-repeat=\"event in events | limitTo:options.limit\">\n" +
-    "        <div class=\"col-lg-12\">  \n" +
-    "            <stackoverflow-activity-comment></stackoverflow-activity-comment>\n" +
-    "            <stackoverflow-activity-question-asked></stackoverflow-activity-question-asked>\n" +
-    "            <stackoverflow-activity-question-answered></stackoverflow-activity-question-answered>\n" +
-    "            <stackoverflow-activity-badge></stackoverflow-activity-badge>\n" +
-    "            <stackoverflow-activity-revision></stackoverflow-activity-revision>\n" +
-    "            <stackoverflow-activity-answer-accepted></stackoverflow-activity-answer-accepted>\n" +
-    "            <stackoverflow-activity-reviewed></stackoverflow-activity-reviewed>\n" +
-    "            <stackoverflow-activity-suggested></stackoverflow-activity-suggested>\n" +
-    "        </div>\n" +
+    "    <div class=\"stackoverflow-activity-row\" ng-repeat=\"event in events | limitTo:options.limit\">\n" +
+    "        <stackoverflow-activity-comment></stackoverflow-activity-comment>\n" +
+    "        <stackoverflow-activity-question-asked></stackoverflow-activity-question-asked>\n" +
+    "        <stackoverflow-activity-question-answered></stackoverflow-activity-question-answered>\n" +
+    "        <stackoverflow-activity-badge></stackoverflow-activity-badge>\n" +
+    "        <stackoverflow-activity-revision></stackoverflow-activity-revision>\n" +
+    "        <stackoverflow-activity-answer-accepted></stackoverflow-activity-answer-accepted>\n" +
+    "        <stackoverflow-activity-reviewed></stackoverflow-activity-reviewed>\n" +
+    "        <stackoverflow-activity-suggested></stackoverflow-activity-suggested>\n" +
     "    </div>\n" +
     "</div>");
 }]);
