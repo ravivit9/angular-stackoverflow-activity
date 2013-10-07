@@ -14,6 +14,8 @@ An [AngularJS](http://angularjs.org/) directive module for displaying a users pu
 
 The `stackoverflow.activity` module requires a dependency of `ngResource` for service calls made to the StackOverflow API.
 
+The templates expect `/fonts` which contain iconography so make sure you include those too. You can [customize templates](#custom-templates) to change the icons or remove them entirely.
+
 ```html
 <head>
 <link href="stackoverflow-activity.css" /> <!-- Find this in /release -->
@@ -85,6 +87,8 @@ $scope.settings = {
 ## Custom Templates
 
 If you wish to change any of the templates or remove dependencies, feel free under `/src/views`.
+
+Custom iconography can be changed by importing the `stackoverflow-activity.json` file found in `/src/assets` into [icomoon.io/app](http://icomoon.io/app). After downloading a new set, make sure to update the cooresponding CSS in `stackoverflow-activity.less` and fonts in `/assets/fonts`.
 
 You will then have to [build](#build) the project which will recompile the `/release`
 
