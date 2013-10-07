@@ -18,16 +18,16 @@ The templates expect `/fonts` which contain iconography so make sure to include 
 
 ```html
 <head>
-<link href="stackoverflow-activity.css" /> <!-- Find this in /release -->
 <link href="app.css" /> <!-- Your application css and overrides -->
+<link href="stackoverflow-activity.css" /> <!-- Find this in /release -->
 </head>
 
 <body>
 ...
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular-resource.min.js"></script>
-<script src="stackoverflow-activity.js"></script> <!-- Find this in /release -->
 <script src="app.js"></script> <!-- Your angular app -->
+<script src="stackoverflow-activity.js"></script> <!-- Find this in /release -->
 </body>
 ```
 
