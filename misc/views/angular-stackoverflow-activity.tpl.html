@@ -1,7 +1,71 @@
+<a href="https://github.com/gigablox/angular-stackoverflow-activity"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+
+<div class="jumbotron">
+  <div class="container" style="text-align:center;">
+    <h1>Angular StackOverflow Activity</h1>
+    <p>AngularJS module for showing off your public StackOverfow activity.</p>
+    <iframe src="http://ghbtns.com/github-btn.html?user=gigablox&repo=angular-stackoverflow-activity&type=watch&size=large&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="120" height="30"></iframe>
+    <iframe src="http://ghbtns.com/github-btn.html?user=gigablox&repo=angular-stackoverflow-activity&type=follow&size=large" allowtransparency="true" frameborder="0" scrolling="0" width="190" height="30"></iframe>
+    <iframe src="http://ghbtns.com/github-btn.html?user=gigablox&repo=angular-stackoverflow-activity&type=fork&size=large&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="120" height="30"></iframe>
+
+  </div>
+</div>
+
+
 <div class="container">
     <div class="row">
-        <div class="col-lg-12">
-            <div stackoverflow-activity events="events" options="options"></div>
+        <div class="col-md-6">
+            
+<h2>Getting Started.</h2>
+<div class="col-lg-12">
+<p>1. Use the <code>StackoverflowActivityService</code> method provided to fetch your data.</p>
+<pre>
+StackoverflowActivityService.events({
+  user:'1113921',
+  params:{
+    key:'n0t4r34l4cc3sst0k3n123',
+    site:'stackoverflow',
+    filter:'unsafe',
+    callback: 'JSON_CALLBACK'
+  }
+}).get().$promise.then(function(events){
+  $scope.activity = events.data;
+});
+
+$scope.config = {
+  limit: 5;
+}
+</pre>
+<br>
+<p>2. Scope it in the callback and use it with the <code>stackoverflow-activity</code> directive.</p>
+<pre>
+&lt;div <strong>stackoverflow-activity</strong> events="activity" options="config">&lt;/div>
+</pre>
+</div>
+
+            <h2>Keeping busy?</h2>
+            <div class="col-lg-12">
+                <div class="col-lg-6 updateInput">
+                    <div class="input-group">
+                      <input type="text" class="form-control" placeholder="User ID" ng-model="user">
+                      <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" ng-click="updateUser(user)">Update</button>
+                      </span>
+                    </div>
+                </div>
+                <div class="col-lg-6 updateInput">
+                    <div class="input-group">
+                      <input type="text" class="form-control" placeholder="Limit" ng-model="limit">
+                      <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" ng-click="updateLimit(limit)">Update</button>
+                      </span>
+                    </div>
+                </div>
+            </div>
         </div>
+        <div class="col-md-6">
+            <div stackoverflow-activity events="activity" options="config"></div>
+        </div>
+
     </div>
 </div>

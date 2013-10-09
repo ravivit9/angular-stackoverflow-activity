@@ -2,7 +2,7 @@
 
 [Homepage](http://gigablox.github.io/angular-stackoverflow-activity/)
 
-An [AngularJS](http://angularjs.org/) directive module for displaying a users public [StackOverflow activity](https://api.stackexchange.com/docs/timeline-on-users).
+An [AngularJS](http://angularjs.org/) directive module for showing off your public [StackOverflow activity](https://api.stackexchange.com/docs/timeline-on-users).
 
 ## Usage
 

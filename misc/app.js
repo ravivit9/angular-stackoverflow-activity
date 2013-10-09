@@ -21,6 +21,30 @@ angular.module('app', [
 
 .controller('AppCtrl', ['$scope','StackoverflowActivityService', function($scope,StackoverflowActivityService) {
 
+  $scope.updateUser = function(user){
+    if(user){
+      StackoverflowActivityService.events({
+        user:user,
+        params:{
+          key:'SvC5iN3YJE*W9pAMOE2n1Q((',
+          site:'stackoverflow',
+          filter:'unsafe',
+          callback: 'JSON_CALLBACK'
+        }
+      }).get().$promise.then(function(events){
+        $scope.activity = events.items;
+      });    
+    }
+  };
+
+  $scope.updateLimit = function(limit){
+    if(limit){
+      $scope.config = {
+        limit:limit
+      };    
+    }
+  };
+  
   StackoverflowActivityService.events({
     user:'1113921',
     params:{
@@ -30,10 +54,10 @@ angular.module('app', [
       callback: 'JSON_CALLBACK'
     }
   }).get().$promise.then(function(events){
-    $scope.events = events.items;
+    $scope.activity = events.items;
   });
 
-  $scope.options = {
-    limit:5
+  $scope.config = {
+    limit:4
   };
 }]);
