@@ -19444,11 +19444,75 @@ angular.module('app.tpls', ['views/angular-stackoverflow-activity.tpl.html']);
 
 angular.module("views/angular-stackoverflow-activity.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("views/angular-stackoverflow-activity.tpl.html",
+    "<a href=\"https://github.com/gigablox/angular-stackoverflow-activity\"><img style=\"position: absolute; top: 0; right: 0; border: 0;\" src=\"https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png\" alt=\"Fork me on GitHub\"></a>\n" +
+    "\n" +
+    "<div class=\"jumbotron\">\n" +
+    "  <div class=\"container centerText\">\n" +
+    "    <h1>Angular StackOverflow Activity</h1>\n" +
+    "    <p>AngularJS module for showing off your public StackOverfow activity.</p>\n" +
+    "    <iframe src=\"http://ghbtns.com/github-btn.html?user=gigablox&repo=angular-stackoverflow-activity&type=watch&size=large&count=true\" allowtransparency=\"true\" frameborder=\"0\" scrolling=\"0\" width=\"120\" height=\"30\"></iframe>\n" +
+    "    <iframe src=\"http://ghbtns.com/github-btn.html?user=gigablox&repo=angular-stackoverflow-activity&type=follow&size=large\" allowtransparency=\"true\" frameborder=\"0\" scrolling=\"0\" width=\"190\" height=\"30\"></iframe>\n" +
+    "    <iframe src=\"http://ghbtns.com/github-btn.html?user=gigablox&repo=angular-stackoverflow-activity&type=fork&size=large&count=true\" allowtransparency=\"true\" frameborder=\"0\" scrolling=\"0\" width=\"120\" height=\"30\"></iframe>\n" +
+    "\n" +
+    "  </div>\n" +
+    "</div>\n" +
+    "\n" +
+    "\n" +
     "<div class=\"container\">\n" +
     "    <div class=\"row\">\n" +
-    "        <div class=\"col-lg-12\">\n" +
-    "            <div stackoverflow-activity events=\"events\" options=\"options\"></div>\n" +
+    "        <div class=\"col-md-6\">\n" +
+    "            \n" +
+    "<h2>Getting Started.</h2>\n" +
+    "<div class=\"col-lg-12\">\n" +
+    "<p>1. Use the <code>StackoverflowActivityService</code> method provided to fetch your data.</p>\n" +
+    "<pre>\n" +
+    "StackoverflowActivityService.events({\n" +
+    "  user:'1113921',\n" +
+    "  params:{\n" +
+    "    key:'n0t4r34l4cc3sst0k3n123',\n" +
+    "    site:'stackoverflow',\n" +
+    "    filter:'unsafe',\n" +
+    "    callback: 'JSON_CALLBACK'\n" +
+    "  }\n" +
+    "}).get().$promise.then(function(events){\n" +
+    "  $scope.activity = events.data;\n" +
+    "});\n" +
+    "\n" +
+    "$scope.config = {\n" +
+    "  limit: 5;\n" +
+    "}\n" +
+    "</pre>\n" +
+    "<br>\n" +
+    "<p>2. Scope it in the callback and use it with the <code>stackoverflow-activity</code> directive.</p>\n" +
+    "<pre>\n" +
+    "&lt;div <strong>stackoverflow-activity</strong> events=\"activity\" options=\"config\">&lt;/div>\n" +
+    "</pre>\n" +
+    "</div>\n" +
+    "\n" +
+    "            <h2>Keeping busy?</h2>\n" +
+    "            <div class=\"col-lg-12\">\n" +
+    "                <div class=\"col-lg-6 updateInput\">\n" +
+    "                    <div class=\"input-group\">\n" +
+    "                      <input type=\"text\" class=\"form-control\" placeholder=\"User ID\" ng-model=\"user\">\n" +
+    "                      <span class=\"input-group-btn\">\n" +
+    "                        <button class=\"btn btn-default\" type=\"button\" ng-click=\"updateUser(user)\">Update</button>\n" +
+    "                      </span>\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "                <div class=\"col-lg-6 updateInput\">\n" +
+    "                    <div class=\"input-group\">\n" +
+    "                      <input type=\"text\" class=\"form-control\" placeholder=\"Limit\" ng-model=\"limit\">\n" +
+    "                      <span class=\"input-group-btn\">\n" +
+    "                        <button class=\"btn btn-default\" type=\"button\" ng-click=\"updateLimit(limit)\">Update</button>\n" +
+    "                      </span>\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "            </div>\n" +
     "        </div>\n" +
+    "        <div class=\"col-md-6\">\n" +
+    "            <div stackoverflow-activity events=\"activity\" options=\"config\"></div>\n" +
+    "        </div>\n" +
+    "\n" +
     "    </div>\n" +
     "</div>");
 }]);
@@ -19476,6 +19540,30 @@ angular.module('app', [
 
 .controller('AppCtrl', ['$scope','StackoverflowActivityService', function($scope,StackoverflowActivityService) {
 
+  $scope.updateUser = function(user){
+    if(user){
+      StackoverflowActivityService.events({
+        user:user,
+        params:{
+          key:'SvC5iN3YJE*W9pAMOE2n1Q((',
+          site:'stackoverflow',
+          filter:'unsafe',
+          callback: 'JSON_CALLBACK'
+        }
+      }).get().$promise.then(function(events){
+        $scope.activity = events.items;
+      });    
+    }
+  };
+
+  $scope.updateLimit = function(limit){
+    if(limit){
+      $scope.config = {
+        limit:limit
+      };    
+    }
+  };
+  
   StackoverflowActivityService.events({
     user:'1113921',
     params:{
@@ -19485,10 +19573,10 @@ angular.module('app', [
       callback: 'JSON_CALLBACK'
     }
   }).get().$promise.then(function(events){
-    $scope.events = events.items;
+    $scope.activity = events.items;
   });
 
-  $scope.options = {
-    limit:5
+  $scope.config = {
+    limit:4
   };
 }]);
