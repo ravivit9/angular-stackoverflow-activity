@@ -1,6 +1,8 @@
 module.exports = function (grunt) {
 
   grunt.loadNpmTasks('grunt-banner');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-clean');
@@ -28,11 +30,30 @@ module.exports = function (grunt) {
     'concat:misc',
     'concat:src',
     'htmlbuild:release',
+    'cssmin',
+    'uglify',
     'usebanner'
   ]);
   
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    cssmin: {
+      release: {
+        files: {
+          'release/css/stackoverflow-activity.min.css': ['release/css/stackoverflow-activity.css']
+        }
+      }
+    },
+    uglify: {
+      options: {
+        mangle: false
+      },
+      release: {
+        files: {
+          'release/js/stackoverflow-activity.min.js': ['release/js/stackoverflow-activity.js']
+        }
+      }
+    },
     usebanner: {
       release: {
         options: {
@@ -150,8 +171,8 @@ module.exports = function (grunt) {
             'build/js/angular.js',
             'build/js/angular-resource.js',
             'build/js/angular-route.js',
-            'build/js/stackoverflow-activity.js',
             'build/js/stackoverflow-activity-tpls.js',
+            'build/js/stackoverflow-activity.js',
             'build/js/app-tpls.js',
             'build/js/app.js',
             ]
@@ -181,17 +202,11 @@ module.exports = function (grunt) {
     },
     less: {
       misc:{
-        options: {
-          yuicompress: true,
-        },
         files: {
           'build/css/app.css': 'build/css/app.less'
         }
       },
       src:{
-        options: {
-          yuicompress: true,
-        },
         files: {
           'build/css/stackoverflow-activity.css': 'build/css/stackoverflow-activity.less'
         }

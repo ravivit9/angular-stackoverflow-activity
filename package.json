@@ -8,6 +8,7 @@
     "grunt-contrib-copy": "latest",
     "grunt-contrib-concat": "latest",
     "grunt-contrib-uglify": "latest",
+    "grunt-contrib-cssmin": "latest",
     "grunt-banner": "latest",
     "grunt-karma": "latest",
     "grunt-html2js": "latest",
