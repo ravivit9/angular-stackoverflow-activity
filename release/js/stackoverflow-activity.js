@@ -1,3 +1,9 @@
+/*
+ angular-stackoverflow-activity - v0.1.0
+ (c) 2013, Daniel Kanze. https://github.com/gigablox
+ License: MIT
+*/
+
 angular.module('stackoverflow.activity', ['stackoverflow.activity.tpls'])
 .factory('StackoverflowActivityService', function($q,$rootScope,$resource) {
     var _stackoverflowActivity = {};

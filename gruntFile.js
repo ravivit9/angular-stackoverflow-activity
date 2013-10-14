@@ -1,5 +1,6 @@
 module.exports = function (grunt) {
 
+  grunt.loadNpmTasks('grunt-banner');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-clean');
@@ -26,12 +27,30 @@ module.exports = function (grunt) {
     'copy:release',
     'concat:misc',
     'concat:src',
-    'htmlbuild:release'
+    'htmlbuild:release',
+    'usebanner'
   ]);
   
-  // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    usebanner: {
+      release: {
+        options: {
+          position: 'top',
+          banner: '/*\n' +
+                  ' <%= pkg.name %> - v<%= pkg.version %>\n' +
+                  ' (c) 2013, Daniel Kanze. https://github.com/gigablox\n' +
+                  ' License: MIT\n' +
+                  '*/\n',
+        },
+        files: {
+          src: [
+            'release/js/stackoverflow-activity*.js',
+            'release/css/stackoverflow-activity*.css'
+          ]
+        }
+      }
+    },
     clean: {
       less: {
         src: [
@@ -67,7 +86,6 @@ module.exports = function (grunt) {
           {expand: true, flatten: true, src: ['vendor/angular-resource/angular-resource.js'], dest: 'build/js/'},
           {expand: true, flatten: true, src: ['vendor/angular-route/angular-route.js'], dest: 'build/js/'},
           {expand: true, flatten: true, src: ['vendor/bootstrap/less/*'], dest: 'build/css', filter: 'isFile'},
-          {expand: true, flatten: true, src: ['vendor/bootstrap/fonts/*'], dest: 'build/fonts', filter: 'isFile'},
         ]
       },
       release:{

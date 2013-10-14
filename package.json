@@ -1,6 +1,6 @@
 {
   "name": "angular-stackoverflow-activity",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "devDependencies": {
     "grunt": "latest",
     "grunt-contrib-less":"latest",
@@ -8,6 +8,7 @@
     "grunt-contrib-copy": "latest",
     "grunt-contrib-concat": "latest",
     "grunt-contrib-uglify": "latest",
+    "grunt-banner": "latest",
     "grunt-karma": "latest",
     "grunt-html2js": "latest",
     "grunt-contrib-watch": "latest",
