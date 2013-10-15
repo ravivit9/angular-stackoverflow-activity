@@ -19479,7 +19479,7 @@ angular.module("views/angular-stackoverflow-activity.tpl.html", []).run(["$templ
     "});\n" +
     "\n" +
     "$scope.config = {\n" +
-    "  limit: 5;\n" +
+    "  limit: 4;\n" +
     "}\n" +
     "</pre>\n" +
     "<br>\n" +
