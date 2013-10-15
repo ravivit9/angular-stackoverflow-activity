@@ -80,7 +80,7 @@ The `options` attribute expects an object that supports the following properties
 
 ```js
 $scope.settings = {
-  limit:5
+  limit:4
 };
 ```
 
